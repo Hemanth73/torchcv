@@ -31,8 +31,8 @@ def meshgrid(x, y, row_major=True):
     1  2
     [torch.FloatTensor of size 6x2]
     '''
-    a = torch.arange(0,x)
-    b = torch.arange(0,y)
+    a = torch.arange(0,x,dtype=torch.float32)
+    b = torch.arange(0,y,dtype=torch.float32)
     xx = a.repeat(y).view(-1,1)
     yy = b.view(-1,1).repeat(1,x).view(-1,1)
     return torch.cat([xx,yy],1) if row_major else torch.cat([yy,xx],1)
